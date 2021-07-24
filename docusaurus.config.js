@@ -9,7 +9,7 @@ module.exports = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  favicon: "img/logo.svg",
   themes: ["@docusaurus/theme-live-codeblock"],
   organizationName: "tone-row", // Usually your GitHub org/user name.
   projectName: "tonami", // Usually your repo name.

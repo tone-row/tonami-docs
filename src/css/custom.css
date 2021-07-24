@@ -5,6 +5,27 @@
  * work well for content-centric websites.
  */
 
+@font-face {
+  font-family: "_";
+  src: url("/fonts/_r.woff2") format("woff2");
+}
+@font-face {
+  font-family: "_";
+  font-style: italic;
+  src: url("/fonts/_ri.woff2") format("woff2");
+}
+@font-face {
+  font-family: "_";
+  font-weight: 700;
+  src: url("/fonts/_b.woff2") format("woff2");
+}
+@font-face {
+  font-family: "_";
+  font-weight: 700;
+  font-style: italic;
+  src: url("/fonts/_bi.woff2") format("woff2");
+}
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #25c2a0;
@@ -15,8 +36,7 @@
   --ifm-color-primary-lighter: rgb(102, 212, 189);
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
-  --ifm-font-family-base: "ABC Marfa Trial", "ABC Diatype Semi-Mono Trial",
-    "Neue Montreal";
+  --ifm-font-family-base: "_", "sans-serif";
   --ifm-font-size-base: 110%;
 }
 

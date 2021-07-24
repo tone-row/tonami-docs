@@ -40,7 +40,7 @@ module.exports = {
           title: "Docs",
           items: [
             {
-              label: "Overview",
+              label: "Home",
               to: "/",
             },
           ],

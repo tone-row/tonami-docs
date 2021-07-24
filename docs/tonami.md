@@ -1,13 +1,16 @@
 ---
 sidebar_position: 1
 slug: /
+hide_title: true
+title: Tonami
 ---
 
 import { TwitterTweetEmbed } from "react-twitter-embed";
 
-# Overview
-
 <div style={{textAlign: 'center'}}>
+
+# Tonami
+
 <img src="/img/logo.svg" alt="Tonami" width={200} />
 </div>
 

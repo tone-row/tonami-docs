@@ -75,7 +75,7 @@ module.exports = {
           items: [
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://github.com/tone-row/tonami",
             },
           ],
         },
@@ -94,8 +94,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/",
+          editUrl: "https://github.com/tone-row/tonami-docs/edit/main/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

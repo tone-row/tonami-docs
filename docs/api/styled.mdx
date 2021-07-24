@@ -1,0 +1,240 @@
+---
+sidebar_position: 1
+---
+
+import { TwitterTweetEmbed } from "react-twitter-embed";
+import { TweetWrapper } from "../../src/components/TweetWrapper";
+
+# styled
+
+`styled` works similarly to [emotion](https://github.com/emotion-js/emotion) or [styled-components](https://github.com/styled-components/styled-components). However, tonami uses objects instead of template literals (more like [JSS](https://github.com/cssinjs/jss)).
+
+## Simple Example
+
+```jsx
+import { styled } from "tonami";
+```
+
+```jsx live noInline
+const Box = styled.div({
+  padding: "20px",
+  border: "solid 4px green",
+});
+
+render(<Box>Hello World</Box>);
+```
+
+## Composition
+
+Compose styled components by passing a component to the `styled` function
+
+```jsx live noInline
+const Box = styled.div({
+  padding: "20px",
+  border: "solid 4px green",
+});
+
+const BlueBox = styled(Box)({
+  color: "blue",
+  boxShadow: "5px 5px 5px blue",
+});
+
+render(<BlueBox>I'm blue da-ba-dee-da-ba-di</BlueBox>);
+```
+
+## `as` – Polymorphism
+
+Change the rendered DOM element via the `as` prop
+
+```jsx live noInline
+const Type = styled.span({
+  fontFamily: "cursive",
+});
+
+render(
+  <div>
+    <Type>Renders a span</Type>
+    <Type as="h1">Renders a heading</Type>
+    <Type as="button">Renders a button</Type>
+  </div>
+);
+```
+
+## Dynamic Properties
+
+You can describe CSS Properties as a function of the props passed to the component.
+
+> ⚠️ &nbsp;Always use props that begin with `$` ([But why!?](/docs/overview#philosophy)).
+>
+> You can also adjust this behavior with tonami's [options](/docs/api/options#transient-props).
+
+```jsx live noInline
+const Box = styled.div({
+  color: ({ $color }) => $color,
+  textShadow: ({ $color }) => `2px 2px 2px ${$color}`,
+});
+
+render(
+  <div>
+    <Box $color="green">Green text, in a box with a green shadow</Box>
+    <Box $color="orange">Orange text, in a box with an orange shadow</Box>
+  </div>
+);
+```
+
+When rendered, tonami uses CSS Custom Properties to apply the color ✨. The benefit is that tonami only has to generate your styles once, and all instances of your component can use the same classes.
+
+### Props in Typescript
+
+If you're using Typescript, pass the component's interface as a generic for type safety and auto-complete.
+
+```tsx
+type Props = {
+  $color: string;
+};
+
+const Box = styled.div<Props>({
+  color: ({ $color }) => $color,
+  textShadow: ({ $color }) => `2px 2px 2px ${$color}`,
+});
+```
+
+## `condition` – Conditional Rulesets
+
+By default the styles you pass are applied to every instance of your component. To apply these styles conditionally add the `condition` property, and pass it a function of your component's props which returns `true` or `false`.
+
+```jsx live noInline
+const Title = styled.h1({
+  color: "hotpink",
+  fontFamily: "cursive",
+  condition: ({ $fun = false }) => $fun,
+});
+
+render(
+  <div>
+    <Title $fun>I'm fun!</Title>
+    <Title>I'm not fun 😔</Title>
+  </div>
+);
+```
+
+## Multiple Rulesets
+
+The style object you pass to `styled` represents a [ruleset](https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax#css_rulesets). You can pass as many of these as you want to a component and use conditions to toggle them on or off.
+
+```jsx live noInline
+const WackyType = styled.div(
+  {
+    fontFamily: "monospace",
+    fontSize: "45px",
+  },
+  // We pass a second ruleset 👇
+  {
+    color: "orangered",
+    textShadow: "2px 2px 10px yellow",
+    transform: "rotate(5deg)",
+    condition: ({ $isWacky = false }) => $isWacky,
+  }
+);
+
+render(
+  <div>
+    <WackyType>Very serious</WackyType>
+    <WackyType $isWacky>Very wacky</WackyType>
+  </div>
+);
+```
+
+Similar to the benefits of using CSS custom properties for dynamic values, passing conditional rulesets gives us the ability to write styles once and toggle classes at runtime, rather than writing and rewriting styles imperatively to the document.
+
+## `apply` – Semantic HTML
+
+By default, a classname is generated for each ruleset; however, sometimes a better description of component state is possible using attribute.
+
+<TweetWrapper>
+  <TwitterTweetEmbed tweetId={"1389225898193293313"} />
+</TweetWrapper>
+
+You can use the `apply` key on a ruleset to describe how a ruleset should be applied.
+
+Keeping in mind that it will still be applied by default unless the `condition` key is passed.
+
+```jsx live noInline
+const Tab = styled.button(
+  {
+    height: "30px",
+    width: "30px",
+    transition: "all .5s ease",
+  },
+  {
+    height: "60px",
+    width: "60px",
+    condition: ({ $isActive = false }) => $isActive,
+    apply: { disabled: true },
+  }
+);
+
+render(() => {
+  const [active, setActive] = useState(0);
+  return (
+    <div>
+      {[0, 1, 2].map((n) => (
+        <Tab key={n} onClick={() => setActive(n)} $isActive={n === active}>
+          {n}
+        </Tab>
+      ))}
+      <h2>{active}</h2>
+    </div>
+  );
+});
+```
+
+If you look at the generated css for the example above you will see something like:
+
+```css
+.TAf0585561.TA421a7a22 {
+  height: 30px;
+  width: 30px;
+  transition: all 0.5s ease 0s;
+}
+.TAf0585561[disabled] {
+  height: 60px;
+  width: 60px;
+}
+```
+
+## `selectors` – Psuedo-selectors, Media Queries, and child elements
+
+Each ruleset can be passed a `selectors` key which takes an object of selectors and the styles to be applied. Each selector must include `&` and `{}`, which will be replaced by the root selector and style object respectively.
+
+> <small>
+>   This is definitely a bit different than how other libraries handle it. We
+>   did it this way so we could accomodate psuedo-selectors (:hover) and @rules
+>   using the same interface. If you have suggestions for how to improve this,
+>   let us know on github or via the discord!
+> </small>
+
+```jsx live noInline
+const FantasyType = styled.div({
+  fontFamily: "fantasy",
+  color: "gold",
+  selectors: {
+    "&:hover {}": {
+      color: "orange",
+      textShadow: "0 0 10px yellow, 0 0 10px gold",
+    },
+    "@media(min-width: 600px) { & {} }": {
+      fontSize: "40px",
+    },
+    "& span {}": {
+      textDecoration: "underline",
+    },
+  },
+});
+
+render(
+  <FantasyType>
+    Living in a <span>fantasy</span>
+  </FantasyType>
+);
+```

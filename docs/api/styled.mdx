@@ -64,9 +64,11 @@ render(
 
 You can describe CSS Properties as a function of the props passed to the component.
 
-> ⚠️ &nbsp;Always use props that begin with `$` ([But why!?](/docs/overview#philosophy)).
->
-> You can also adjust this behavior with tonami's [options](/docs/api/options#transient-props).
+:::caution
+
+Always use props that begin with `$`. [Learn More](/api/options#transient-props)
+
+:::
 
 ```jsx live noInline
 const Box = styled.div({

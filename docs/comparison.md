@@ -8,12 +8,12 @@ A brief overview of Tonami for people familiar with styled-components/emotion/go
 
 Tonami has two familiar API's:
 
-- [styled](/docs/api/styled)
-- [createGlobalStyle](/docs/api/createGlobalStyle)
+- [styled](/api/styled)
+- [createGlobalStyle](/api/createGlobalStyle)
 
 And one new one:
 
-- [createTokens](/docs/api/createTokens)
+- [createTokens](/api/createTokens)
 
 ## Familiar API's
 
@@ -43,7 +43,7 @@ const Type = styled.span`
 `;
 ```
 
-In tonami it's gotta be: [(Read More)](/docs/api/options#transient-props)
+In tonami it's gotta be: [(Read More)](/api/options#transient-props)
 
 ```jsx
 const Type = styled.span({ fontFamily: ({ $fam }) => $fam });

@@ -23,18 +23,6 @@ module.exports = {
       },
       items: [
         {
-          type: "doc",
-          docId: "overview",
-          position: "left",
-          label: "Overview",
-        },
-        {
-          type: "doc",
-          docId: "examples/modular-type-component",
-          position: "left",
-          label: "Examples",
-        },
-        {
           href: "https://github.com/tone-row/tonami",
           label: "GitHub",
           position: "right",
@@ -53,7 +41,7 @@ module.exports = {
           items: [
             {
               label: "Overview",
-              to: "/docs/overview",
+              to: "/",
             },
           ],
         },
@@ -95,6 +83,7 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           editUrl: "https://github.com/tone-row/tonami-docs/edit/main/",
+          routeBasePath: "/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

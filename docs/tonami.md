@@ -2,32 +2,34 @@
 sidebar_position: 1
 slug: /
 hide_title: true
-title: Tonami
+sidebar_label: Introduction
 ---
 
 import { TwitterTweetEmbed } from "react-twitter-embed";
+import { TweetWrapper } from "../src/components/TweetWrapper";
 
 <div style={{textAlign: 'center'}}>
 
-# Tonami
+# tonami
 
-<img src="/img/logo.svg" alt="Tonami" width={200} />
+<img src="/img/logo.svg" className="home-img" alt="Tonami" width={250} />
+
 </div>
 
-## Introduction
-
-Tonami is a CSS-in-JS library for React that has a familiar API, but under the hood uses CSS Custom Properties and other built-in browser techniques for composing dynamic styles.
-
-## Work in Progress
-
-Tonami is still in its infancy. I'm publishing it to guage interest and to gather feedback. [Jump in the Discord](https://discord.gg/nbqTWkjM) and let me know your thoughts and suggestions!
-
-## Motivation
-
-<TwitterTweetEmbed tweetId={"1416204983352107008"} />
-
-## Getting Started
+<p className="intro">tonami is a CSS-in-JS library with a familiar API that uses browser features like <mark>CSS custom properties</mark> for styling dynamic components</p>
 
 ```shell
 yarn add tonami
 ```
+
+:::caution
+
+Tonami is a work in progress. Until reaching **v1.0.0** the API's may change.
+
+I'm publishing it to guage interest and gather feedback. If you're interested [join the Discord](https://discord.gg/nbqTWkjM)!
+
+:::
+
+<TweetWrapper>
+  <TwitterTweetEmbed tweetId={"1416204983352107008"} />
+</TweetWrapper>

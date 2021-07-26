@@ -2,24 +2,24 @@
 sidebar_position: 2
 ---
 
-# Fast Comparison
+# Learn by Comparison
 
-A brief overview of Tonami for people familiar with styled-components/emotion/goober.
+A brief overview of tonami for people familiar with styled-components, emotion, or goober.
 
-Tonami has two familiar API's:
+tonami has two familiar API's
 
-- [styled](/api/styled)
-- [createGlobalStyle](/api/createGlobalStyle)
+- [styled](#styled)
+- [createGlobalStyle](#createglobalstyle)
 
-And one new one:
+and one unfamiliar one
 
-- [createTokens](/api/createTokens)
+- [createTokens](#createtokens)
 
-## Familiar API's
+## styled
 
-### Objects instead of Tagged Template Literals
+### Uses objects
 
-In styled-components/emotion/goober...
+In styled-components, emotion, or goober
 
 ```jsx
 const Type = styled.span`
@@ -27,15 +27,15 @@ const Type = styled.span`
 `;
 ```
 
-In tonami:
+In tonami
 
 ```jsx
 const Type = styled.span({ fontFamily: "cursive" });
 ```
 
-### <u>Always</u> prefix props with `$`
+### Expects prefixed props
 
-This is fine in styled components:
+In styled-components, emotion, or goober
 
 ```jsx
 const Type = styled.span`
@@ -43,15 +43,17 @@ const Type = styled.span`
 `;
 ```
 
-In tonami it's gotta be: [(Read More)](/api/options#transient-props)
+In tonami
 
 ```jsx
 const Type = styled.span({ fontFamily: ({ $fam }) => $fam });
 ```
 
-### ✅ Multiple arguments + `condition`<br/> ❌ Functions returning rulesets
+[Learn More](/api/options#transient-props)
 
-In styled-components/emotion/goober:
+### Accepts multiple, conditional arguments
+
+In styled-components, emotion, or goober
 
 ```jsx
 const Type = styled.span`
@@ -60,7 +62,7 @@ const Type = styled.span`
 `;
 ```
 
-In tonami:
+In tonami
 
 ```jsx {6}
 const Type = styled.span(
@@ -73,9 +75,9 @@ const Type = styled.span(
 );
 ```
 
-### ✅ `selectors` + `& {}`<br/>❌ Stylis
+### Supports selectors
 
-In styled-components/emotion/goober...
+In styled-components, emotion, or goober
 
 ```jsx
 const Type = styled.span`
@@ -87,7 +89,7 @@ const Type = styled.span`
 `;
 ```
 
-In tonami:
+In tonami
 
 ```jsx
 const Type = styled.span({
@@ -99,3 +101,69 @@ const Type = styled.span({
   },
 });
 ```
+
+### Supports implicit attribute styling
+
+In styled-components, emotion, or goober
+
+```jsx
+const Input = styled.input`
+  &:disabled {
+    opacity: 0.5;
+  }
+`;
+
+function App({ isLoading }) {
+  return <Input disabled={isLoading} />;
+}
+```
+
+In tonami
+
+```jsx {4}
+const Input = styled.input({
+  opacity: 0.5,
+  condition: ({ $isLoading }) => $isLoading,
+  apply: { disabled: true },
+});
+
+function App({ isLoading }) {
+  return <Input $isLoading={isLoading} />;
+}
+```
+
+## createGlobalStyle
+
+### Uses objects, expects prefixed props
+
+In styled-components, emotion, or goober
+
+```jsx
+const Global = createGlobalStyle`
+  html {
+    font-family: monospace;
+  }
+  a {
+    color: ${({ color }) => color};
+  }
+`;
+```
+
+In tonami
+
+```jsx
+const Global = createGlobalStyle({
+  html: {
+    fontFamily: "monospace",
+  },
+  a: {
+    color: ({ $color }) => $color,
+  },
+});
+```
+
+- Expects prefixed props
+
+## createTokens
+
+[View the documentation](/api/createTokens)

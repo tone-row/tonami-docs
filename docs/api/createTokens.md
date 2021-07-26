@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # createTokens
 
-_Tokens_ refers to CSS Variables or CSS Custom Properties. `createTokens` let's you declare custom properties and provides you with the tools to implement and reference them around your website or app. The primary goal is to make theme-ing easier.
+_Tokens_ refers to CSS Variables or CSS Custom Properties. `createTokens` centralizes how you declare, access, and update custom properties in your website or app. The goal is to make themeing easier.
 
 ## Basic Usage
 

@@ -1,9 +1,9 @@
 const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const darkCodeTheme = require("prism-react-renderer/themes/vsDark");
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: "Tonami",
+  title: "tonami",
   tagline: "CSS in JS + CSS Custom Properties = ❤️",
   url: "https://tonami.dev",
   baseUrl: "/",
@@ -16,9 +16,9 @@ module.exports = {
   themeConfig: {
     sidebarCollapsible: false,
     navbar: {
-      title: "Tonami",
+      title: "tonami",
       logo: {
-        alt: "Tonami",
+        alt: "tonami",
         src: "img/logo.svg",
       },
       items: [

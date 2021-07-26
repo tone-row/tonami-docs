@@ -3,7 +3,7 @@ import { styled } from "tonami";
 export const TweetWrapper = styled.div({
   textAlign: "center",
   padding: "1rem",
-  backgroundColor: "var(--ifm-color-primary-lightest)",
+  backgroundColor: "var(--ifm-color-primary)",
   borderRadius: "10px",
   marginBlockEnd: "1rem",
   selectors: {

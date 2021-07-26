@@ -5,39 +5,97 @@
  * work well for content-centric websites.
  */
 
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+
 @font-face {
-  font-family: "_";
-  src: url("/fonts/_r.woff2") format("woff2");
+  font-family: "Inter";
+  src: url("/fonts/Inter-Regular.woff2") format("woff2");
+  font-style: normal;
 }
 @font-face {
-  font-family: "_";
+  font-family: "Inter";
+  src: url("/fonts/Inter-Italic.woff2") format("woff2");
   font-style: italic;
-  src: url("/fonts/_ri.woff2") format("woff2");
 }
 @font-face {
-  font-family: "_";
+  font-family: "Inter";
+  src: url("/fonts/Inter-Bold.woff2") format("woff2");
+  font-style: normal;
   font-weight: 700;
-  src: url("/fonts/_b.woff2") format("woff2");
 }
 @font-face {
-  font-family: "_";
-  font-weight: 700;
+  font-family: "Inter";
+  src: url("/fonts/Inter-BoldItalic.woff2") format("woff2");
   font-style: italic;
-  src: url("/fonts/_bi.woff2") format("woff2");
+  font-weight: 700;
 }
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-color-primary: #5c6fff;
+  --ifm-color-primary-dark: #4a59cc;
+  --ifm-color-primary-darker: #404eb3;
+  --ifm-color-primary-darkest: #2e3880;
+  --ifm-color-primary-light: #7d8cff;
+  --ifm-color-primary-lighter: #8d9aff;
+  --ifm-color-primary-lightest: #aeb7ff;
+
+  --ifm-color-secondary: #ebedf0;
+  --ifm-color-secondary-dark: rgb(212, 213, 216);
+  --ifm-color-secondary-darker: rgb(200, 201, 204);
+  --ifm-color-secondary-darkest: rgb(164, 166, 168);
+  --ifm-color-secondary-light: rgb(238, 240, 242);
+  --ifm-color-secondary-lighter: rgb(241, 242, 245);
+  --ifm-color-secondary-lightest: rgb(245, 246, 248);
+
+  --ifm-color-success: #3eed53;
+  --ifm-color-success-dark: #38d54b;
+  --ifm-color-success-darker: #32be42;
+  --ifm-color-success-darkest: #258e32;
+  --ifm-color-success-light: #65f175;
+  --ifm-color-success-lighter: #78f287;
+  --ifm-color-success-lightest: #9ff6a9;
+
+  --ifm-color-info: #54c7ec;
+  --ifm-color-info-dark: rgb(76, 179, 212);
+  --ifm-color-info-darker: rgb(71, 169, 201);
+  --ifm-color-info-darkest: rgb(59, 139, 165);
+  --ifm-color-info-light: rgb(110, 207, 239);
+  --ifm-color-info-lighter: rgb(135, 216, 242);
+  --ifm-color-info-lightest: rgb(170, 227, 246);
+
+  --ifm-color-warning: #ff6b35;
+  --ifm-color-warning-dark: #e66030;
+  --ifm-color-warning-darker: #cc562a;
+  --ifm-color-warning-darkest: #b34b25;
+  --ifm-color-warning-light: #ff7a49;
+  --ifm-color-warning-lighter: #ff9772;
+  --ifm-color-warning-lightest: #ffa686;
+
+  --ifm-color-danger: #fa383e;
+  --ifm-color-danger-dark: rgb(225, 50, 56);
+  --ifm-color-danger-darker: rgb(213, 48, 53);
+  --ifm-color-danger-darkest: rgb(175, 39, 43);
+  --ifm-color-danger-light: rgb(251, 86, 91);
+  --ifm-color-danger-lighter: rgb(251, 116, 120);
+  --ifm-color-danger-lightest: rgb(253, 156, 159);
+
   --ifm-code-font-size: 95%;
-  --ifm-font-family-base: "_", "sans-serif";
+  --ifm-font-family-base: "Inter", "Questrial", "sans-serif";
   --ifm-font-size-base: 110%;
+  --ifm-navbar-shadow: none;
+  --ifm-navbar-padding-horizontal: 0.5rem;
+  --ifm-navbar-height: 58px;
+  /* --ifm-navbar-background-color: var(--ifm-color-secondary-lightest); */
+}
+
+h1,
+/* h2, */
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
 }
 
 .docusaurus-highlight-code-line {
@@ -53,4 +111,72 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
 
 blockquote {
   background-color: var(--ifm-color-emphasis-100);
+}
+
+@media (min-width: 997px) {
+  .docSidebarContainer_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocPage-styles-module {
+    border-right: none !important;
+  }
+}
+
+.navbar__title {
+  font-weight: 400;
+}
+
+p.intro {
+  font-size: var(--ifm-h3-font-size);
+  text-align: center;
+}
+
+/* html {
+  background-color: var(--ifm-color-gray-100);
+}
+html[data-theme="dark"] {
+  background-color: var(--ifm-color-gray-900);
+} */
+
+.navbar {
+  border-bottom: 1px solid var(--ifm-color-secondary-light);
+}
+
+html[data-theme="dark"] .navbar {
+  background-color: var(--ifm-color-gray-900);
+  border-bottom-color: var(--ifm-color-emphasis-200);
+}
+
+.menu {
+  font-weight: 400;
+}
+
+.home-img {
+  margin-top: -15px !important;
+  margin-left: 3px;
+}
+
+mark {
+  background-color: #fcec52;
+  color: black;
+}
+
+.playgroundHeader_node_modules-\@docusaurus-theme-live-codeblock-src-theme-Playground-styles-module {
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-weight: 400 !important;
+}
+
+.playgroundHeader_node_modules-\@docusaurus-theme-live-codeblock-src-theme-Playground-styles-module {
+  display: none;
+}
+
+.playgroundEditor_node_modules-\@docusaurus-theme-live-codeblock-src-theme-Playground-styles-module {
+  border-top-left-radius: var(--ifm-global-radius);
+  border-top-right-radius: var(--ifm-global-radius);
+}
+
+.pagination-nav__label {
+  font-weight: normal;
+}
+
+.footer--dark {
+  background-color: var(--ifm-color-primary-dark);
 }

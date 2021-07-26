@@ -16,6 +16,10 @@ module.exports = {
   themeConfig: {
     image: "img/tonami-soc.png",
     sidebarCollapsible: false,
+    googleAnalytics: {
+      trackingID: "G-60XGX49P4G",
+      anonymizeIP: true,
+    },
     navbar: {
       title: "tonami",
       logo: {
@@ -28,10 +32,6 @@ module.exports = {
           label: "GitHub",
           position: "right",
         },
-        // {
-        //   type: "logo",
-        //   src: "https://img.shields.io/github/stars/tone-row/tonami?style=social",
-        // },
       ],
     },
     footer: {

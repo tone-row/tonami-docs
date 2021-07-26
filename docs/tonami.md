@@ -8,15 +8,24 @@ sidebar_label: Introduction
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import { TweetWrapper } from "../src/components/TweetWrapper";
 
-<div style={{textAlign: 'center'}}>
+<div style={{textAlign: "center"}}>
 
 # tonami
 
 <img src="/img/logo.svg" className="home-img" alt="Tonami" width={250} />
 
+<p className="intro">tonami is a CSS-in-JS library with a familiar API that uses browser features like <mark>CSS custom properties</mark> for styling dynamic components</p>
+
 </div>
 
-<p className="intro">tonami is a CSS-in-JS library with a familiar API that uses browser features like <mark>CSS custom properties</mark> for styling dynamic components</p>
+<div className="shields">
+
+[![version][version-badge]][package]
+![downloads per month][downloads]
+![gzipped size][size]
+![test coverage][coverage]
+
+</div>
 
 ```shell
 yarn add tonami
@@ -33,3 +42,11 @@ I'm publishing it to guage interest and gather feedback. If you're interested [j
 <TweetWrapper>
   <TwitterTweetEmbed tweetId={"1416204983352107008"} />
 </TweetWrapper>
+
+<!-- prettier-ignore-start -->
+[version-badge]: https://img.shields.io/npm/v/tonami?style=flat-square
+[package]: https://www.npmjs.com/package/tonami
+[downloads]: https://img.shields.io/npm/dm/tonami?style=flat-square
+[size]: https://img.shields.io/bundlephobia/minzip/tonami?style=flat-square
+[coverage]: https://img.shields.io/codecov/c/github/tone-row/tonami?style=flat-square
+<!-- prettier-ignore-end -->

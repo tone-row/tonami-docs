@@ -16,7 +16,7 @@ module.exports = {
   themeConfig: {
     image: "img/tonami-soc.png",
     sidebarCollapsible: false,
-    googleAnalytics: {
+    gtag: {
       trackingID: "G-60XGX49P4G",
       anonymizeIP: true,
     },

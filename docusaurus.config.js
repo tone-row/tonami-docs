@@ -14,6 +14,7 @@ module.exports = {
   organizationName: "tone-row", // Usually your GitHub org/user name.
   projectName: "tonami", // Usually your repo name.
   themeConfig: {
+    image: "img/tonami-soc.png",
     sidebarCollapsible: false,
     navbar: {
       title: "tonami",

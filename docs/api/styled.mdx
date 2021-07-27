@@ -47,15 +47,15 @@ render(<BlueBox>I'm blue da-ba-dee-da-ba-di</BlueBox>);
 Change the rendered DOM element via the `as` prop
 
 ```jsx live noInline
-const Type = styled.span({
+const Typography = styled.span({
   fontFamily: "cursive",
 });
 
 render(
   <div>
-    <Type>Renders a span</Type>
-    <Type as="h1">Renders a heading</Type>
-    <Type as="button">Renders a button</Type>
+    <Typography>Renders a span</Typography>
+    <Typography as="h1">Renders a heading</Typography>
+    <Typography as="button">Renders a button</Typography>
   </div>
 );
 ```

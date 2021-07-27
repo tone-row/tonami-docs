@@ -22,7 +22,7 @@ and one unfamiliar one
 In styled-components, emotion, or goober
 
 ```jsx
-const Type = styled.span`
+const Typography = styled.span`
   font-family: cursive;
 `;
 ```
@@ -30,23 +30,23 @@ const Type = styled.span`
 In tonami
 
 ```jsx
-const Type = styled.span({ fontFamily: "cursive" });
+const Typography = styled.span({ fontFamily: "cursive" });
 ```
 
-### Expects prefixed props
+### Expects $ prefixed props
 
 In styled-components, emotion, or goober
 
 ```jsx
-const Type = styled.span`
-  fontfamily: ${({ fam }) => fam};
+const Typography = styled.span`
+  font-family: ${({ fam }) => fam};
 `;
 ```
 
 In tonami
 
 ```jsx
-const Type = styled.span({ fontFamily: ({ $fam }) => $fam });
+const Typography = styled.span({ fontFamily: ({ $fam }) => $fam });
 ```
 
 [Learn More](/api/options#transient-props)
@@ -56,8 +56,8 @@ const Type = styled.span({ fontFamily: ({ $fam }) => $fam });
 In styled-components, emotion, or goober
 
 ```jsx
-const Type = styled.span`
-  fontfamily: cursive;
+const Typography = styled.span`
+  font-family: cursive;
   ${({ isAlert }) => (isAlert ? `color: red; font-weight: bold;` : ``)}
 `;
 ```
@@ -65,7 +65,7 @@ const Type = styled.span`
 In tonami
 
 ```jsx {6}
-const Type = styled.span(
+const Typography = styled.span(
   { fontFamily: "cursive" },
   {
     color: "red",
@@ -80,7 +80,7 @@ const Type = styled.span(
 In styled-components, emotion, or goober
 
 ```jsx
-const Type = styled.span`
+const Typography = styled.span`
   font-family: cursive;
 
   @media (min-width: 800px) {
@@ -92,7 +92,7 @@ const Type = styled.span`
 In tonami
 
 ```jsx
-const Type = styled.span({
+const Typography = styled.span({
   fontFamily: "cursive",
   selectors: {
     "@media (min-width: 800px) { & {} }": {
@@ -134,7 +134,7 @@ function App({ isLoading }) {
 
 ## createGlobalStyle
 
-### Uses objects, expects prefixed props
+### Uses objects, expects $-prefixed props
 
 In styled-components, emotion, or goober
 

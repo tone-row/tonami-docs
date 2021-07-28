@@ -8296,10 +8296,10 @@ toidentifier@1.0.0:
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
 
-tonami@0.4.1-beta.2:
-  version "0.4.1-beta.2"
-  resolved "https://registry.yarnpkg.com/tonami/-/tonami-0.4.1-beta.2.tgz#fa7e38a6401e29a4f33472d5cb5462fcc4a15ff8"
-  integrity sha512-NedKCWrccBiM9JScGI1WBtzOFQ/3OH/VMtnfkg97K3j1KmOtkiaukGNVDBHE0WnhmQLJtlxlcu2Lt6E8PgguVg==
+tonami@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/tonami/-/tonami-0.4.2.tgz#daf8a091b0e8804c267a048e32f461993ff6db7c"
+  integrity sha512-sVQ/APfcG3RV4oVw80CHD0VAEutc3qRpKGYp+NVRxaV3F1e808cLjW96PFtLdQOQHU6sYMI9MA3n4sB3e53kbA==
   dependencies:
     csstype "^3.0.8"
 

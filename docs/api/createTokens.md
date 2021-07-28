@@ -81,9 +81,40 @@ render(() => {
   return (
     <>
       <button onClick={toggle}>{`Toggle <Tokens/>`}</button>
-      <input type="checkbox" checked={m} />
+      <input type="checkbox" checked={m} readOnly />
       {m && <Tokens />}
       <Text>Howdy Podner</Text>
+    </>
+  );
+});
+```
+
+## Create Dynamic Tokens
+
+In some cases it's useful to produce an accessor with `createTokens`, but allow the values of the css variables to be... variable 🥁 In those situations you can use `createDynamicTokens` – which is inside the accessor (similar to the component `Tokens`). It accepts a function that maps the props passed to the component to the token values.
+
+```jsx live noInline
+const light = { foreground: "black", background: "whitesmoke" };
+const dark = { foreground: "whitesmoke", background: "black" };
+const theme = createTokens(light);
+const { createDynamicTokens } = theme;
+const Tokens = createDynamicTokens(({ $mode }) =>
+  $mode === "light" ? light : dark
+);
+const Button = styled.button({
+  backgroundColor: theme.background,
+  color: theme.foreground,
+});
+
+render(() => {
+  const [mode, toggle] = useReducer(
+    (m) => (m === "light" ? "dark" : "light"),
+    "light"
+  );
+  return (
+    <>
+      <Tokens $mode={mode} />
+      <Button onClick={toggle}>Toggle Button Theme</Button>
     </>
   );
 });

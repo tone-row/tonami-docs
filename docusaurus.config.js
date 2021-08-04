@@ -1,3 +1,4 @@
+require("dotenv").config();
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/vsDark");
 
@@ -74,6 +75,10 @@ module.exports = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
+    },
+    algolia: {
+      apiKey: process.env.ALGOLIA_API_KEY,
+      indexName: "tonami",
     },
   },
   presets: [

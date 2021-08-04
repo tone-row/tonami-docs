@@ -35,7 +35,7 @@ yarn add tonami
 
 Tonami is a work in progress. Until reaching **v1.0.0** the API's may change.
 
-I'm publishing it to guage interest and gather feedback. If you're interested [join the Discord](https://discord.gg/nbqTWkjM)!
+I'm publishing it to gauge interest and gather feedback. If you're interested [join the Discord](https://discord.gg/nbqTWkjM)!
 
 :::
 
